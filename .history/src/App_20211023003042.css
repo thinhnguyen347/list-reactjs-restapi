@@ -1,0 +1,55 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+}
+
+td.delete {
+  cursor: pointer;
+  padding: 10px;
+}
+
+tr{
+  border: 
+}
+
+table {
+  width: 90%;
+  margin: 20px auto;
+}
+
+th {
+  background-color: rgb(178, 208, 248);
+}
+
+.App-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+}
+
+.App-user,
+.App-time {
+  max-width: 100px;
+}
+
+.App-No{
+  padding: 0 5px;
+}
+
+.App-reason{
+  max-width: 500px;
+}

@@ -1,0 +1,47 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+}
+
+td.delete{
+  cursor: pointer;
+}
+
+table {
+  width: 90%;
+  margin: 20px auto;
+  
+}
+
+th{
+  background-color: blanchedalmond;
+}
+
+.App-add-btn {
+  display: block;
+  margin: 10px 10px 10px auto !important;
+}
+
+.App-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+}
+
+user{
+  max-width: 50px;
+}

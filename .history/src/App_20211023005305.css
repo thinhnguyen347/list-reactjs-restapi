@@ -1,0 +1,67 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+tr,td,th {
+  border: 1px solid gray;
+}
+
+th,
+td {
+  padding: 8px;
+}
+
+td.delete {
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: rgb(178, 208, 248);
+}
+
+.App-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+}
+
+.App-user,
+.App-time {
+  max-width: 100px;
+}
+
+.App-No{
+  padding: 0 5px;
+}
+
+.App-reason{
+  max-width: 500px;
+}
+
+.dot1{
+  transition: .5s ease-in-out;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -ms-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  animation: dot1 0.5s 0.1s infinite;
+  -webkit-animation: dot-1 0.5s 0.1s infinite;
+}
+
+@keyframes dot-1 {
+  0%   {display: none;}
+  20%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
