@@ -3,13 +3,11 @@
   text-align: center;
 }
 
-tr {
-  border-bottom: 0.5px solid gray;
+td {
+  border-bottom: 1px solid gray;
 }
 
-tr:last-child {
-  border: none;
-}
+td:l
 
 tr.App-row:hover {
   background-color: #e8e7ff;

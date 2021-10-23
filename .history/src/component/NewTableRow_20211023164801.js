@@ -6,7 +6,7 @@ export default function NewTableRow({number, time, reason, deleteRow }) {
   reason = reason.substr(1, reason.length)
   reason = x + reason;
   return (
-    <tr key={nanoid()} className="App-row">
+    <tr key={nanoid()} className="Approw">
       <td className="App-No" key={nanoid()}>{number}</td>
       <td key={nanoid()} className="App-reason">{reason}</td>
       <td className="App-time" key={nanoid()}>{time}</td>

@@ -74,7 +74,7 @@ export default function App() {
           Loading ...
         </div>
       ) : (
-        <table cellSpacing="0" cellPadding="0">
+        <table cellSpacing="0" cellpadding="0">
           <thead>
             <tr>
               <th className="App-No">STT</th>

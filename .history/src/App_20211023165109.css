@@ -3,17 +3,18 @@
   text-align: center;
 }
 
-tr {
-  border-bottom: 0.5px solid gray;
+tr,
+td,
+th {
+  border: 1px solid gray;
 }
 
-tr:last-child {
-  border: none;
+tr.App-row:hover{
+  background-color: #6579CF;
+  color: #ffffff;
 }
 
-tr.App-row:hover {
-  background-color: #e8e7ff;
-}
+tr
 
 th,
 td {
@@ -30,17 +31,10 @@ table {
   margin: 20px auto;
   border-collapse: collapse;
   background: #ffffff;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  overflow: hidden;
 }
 
 th {
-  background-color: #50439f;
-  color: #ffffff;
+  background-color: rgb(178, 208, 248);
 }
 
 .App-loading {
