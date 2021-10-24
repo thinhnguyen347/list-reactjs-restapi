@@ -78,7 +78,7 @@ export default function App() {
           <thead>
             <tr>
               <th className="App-No">STT</th>
-              <th className="App-reason">Lý do nội bộ</th>
+              <th className="App-reason">Lý do nooij booj</th>
               <th className="App-time">Thời gian</th>
               <th className="App-user">Người cập nhật</th>
               <th>Xoá</th>
