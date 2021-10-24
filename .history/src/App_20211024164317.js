@@ -86,7 +86,7 @@ export default function App() {
           </thead>
           <tbody>
             {tempData.map(({ id, title, timeStamp }) => (
-              <TableRow
+              <NewTableRow
                 key={nanoid()}
                 number={id}
                 time={timeStamp}

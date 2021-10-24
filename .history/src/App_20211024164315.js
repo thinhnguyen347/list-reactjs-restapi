@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Button from "@mui/material/Button";
-import TableRow from "./component/TableRow";
+import NewTableRow from "./component/TableRow";
 import { nanoid } from "nanoid";
 
 export default function App() {
@@ -86,7 +86,7 @@ export default function App() {
           </thead>
           <tbody>
             {tempData.map(({ id, title, timeStamp }) => (
-              <TableRow
+              <NewTableRow
                 key={nanoid()}
                 number={id}
                 time={timeStamp}

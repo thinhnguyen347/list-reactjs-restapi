@@ -4,7 +4,7 @@
 }
 
 tr {
-  border-bottom: 0.5px solid #d8d3f0;
+  border-bottom: 10px solid #EEEDF2;
 }
 
 tr:last-child {
@@ -23,11 +23,6 @@ td {
 td.delete {
   cursor: pointer;
   font-size: 1.3rem;
-}
-
-td > svg{
-  display: block;
-  margin: auto;
 }
 
 table {
