@@ -7,7 +7,7 @@ import { nanoid } from "nanoid";
 export default function App() {
   const [row, setRow] = useState(JSON.parse(localStorage.getItem("row")) || 1);
   const [list, setList] = useState(JSON.parse(localStorage.getItem("data")));
-  const [isLoading, setIsLoading] = useState(JSON.parse(localStorage.getItem("data")) ? false : true);
+  const [isLoading, setIsLoading] = useState(JSON.parse(localStorage.getItem("data"))true);
   const [isAddding, setIsAddding] = useState(false);
   const [dataEmpty, setDataEmpty] = useState(false);
 
