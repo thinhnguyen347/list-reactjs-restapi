@@ -71,7 +71,7 @@ export default function App() {
         className="App-add-btn"
         onClick={() => {
           setRow((row) => row + 1);
-          setIsLoading(false);
+          setIsLoading(true);
           setIsAddding(true);
         }}
       >

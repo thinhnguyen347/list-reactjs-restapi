@@ -17,7 +17,7 @@ tr.App-row:hover {
 
 th,
 td {
-  padding: 16px;
+  padding: 16px 10px;
 }
 
 td.delete {
@@ -25,7 +25,7 @@ td.delete {
   font-size: 1.3rem;
 }
 
-td > svg {
+td > svg{
   display: block;
   margin: auto;
 }
@@ -53,13 +53,16 @@ th {
   align-items: center;
   justify-content: center;
   height: 100px;
-  width: 100%; 
+  width: 100%;
 }
 
 .App-user,
-.App-ID,
 .App-time {
   max-width: 100px;
+}
+
+.App-No {
+  padding: 0 5px;
 }
 
 .App-reason {

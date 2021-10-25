@@ -5,40 +5,33 @@ import TableRow from "./component/TableRow";
 import { nanoid } from "nanoid";
 
 export default function App() {
-  const [row, setRow] = useState(JSON.parse(localStorage.getItem("row")) || 1);
-  const [list, setList] = useState(JSON.parse(localStorage.getItem("data")));
+  const [row, setRow] = useState(1);
+  const [list, setList] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isAddding, setIsAddding] = useState(false);
-  const [dataEmpty, setDataEmpty] = useState(false);
 
   let url = "https://jsonplaceholder.typicode.com/todos";
   let tempData;
-  if (list) {
-    tempData = [...list];
-    localStorage.setItem("data", JSON.stringify(list));
-  }
+  if (list) tempData = [...list];
 
   useEffect(() => {
-    if (list === null) {
-      fetch(`${url}/1`)
-        .then((response) => response.json())
-        .then((result) => {
-          let time = `${new Date().toLocaleTimeString(
-            "vi-VN"
-          )} - ${new Date().toLocaleDateString("vi-VN")}`;
-          result = [{ ...result, timeStamp: time }];
-          setList(result);
-          setIsLoading(false);
-        });
-    }
-  }, [url, list]);
+    fetch(`${url}/1`)
+      .then((response) => response.json())
+      .then((result) => {
+        let time = `${new Date().toLocaleTimeString(
+          "vi-VN"
+        )} - ${new Date().toLocaleDateString("vi-VN")}`;
+        result = [{ ...result, timeStamp: time }];
+        setList(result);
+        setIsLoading(false);
+      });
+  }, [url]);
 
   useEffect(() => {
     if (isAddding) {
       fetch(`${url}/${row}`)
         .then((response) => response.json())
         .then((result) => {
-          localStorage.setItem("row", `${row}`);
           let time = `${new Date().toLocaleTimeString(
             "vi-VN"
           )} - ${new Date().toLocaleDateString("vi-VN")}`;
@@ -46,7 +39,6 @@ export default function App() {
           setList((list) => [...list, result]);
           setIsLoading(false);
           setIsAddding(false);
-          setDataEmpty(false);
         });
     }
   }, [url, row, isAddding]);
@@ -54,10 +46,7 @@ export default function App() {
   function deleteRow(id) {
     let index = tempData.findIndex((e) => e.id === id);
     tempData.splice(index, 1);
-    if (!tempData.length) {
-      setRow(0);
-      setDataEmpty(true);
-    }
+    if (!tempData.length) setRow(3);
     setList(tempData);
   }
 
@@ -71,31 +60,30 @@ export default function App() {
         className="App-add-btn"
         onClick={() => {
           setRow((row) => row + 1);
-          setIsLoading(false);
+          setIsLoading(true);
           setIsAddding(true);
         }}
       >
         Thêm mới
       </Button>
-
-      {(isLoading) ? (
-        <div className="App-loading">Loading ...</div>
+      {isLoading && !tempData?.length ? (
+        <div className="App-loading">
+          Loading ...
+        </div>
       ) : (
         <table cellSpacing="0" cellPadding="0">
           <thead>
             <tr>
               <th className="App-No">STT</th>
-              <th className="App-ID">ID</th>
               <th className="App-reason">Lý do nội&nbsp;bộ</th>
               <th className="App-time">Thời gian</th>
-              <th className="App-user">Người cập&nbsp;nhật</th>
+              <th className="App-user">Người cập nhật</th>
               <th>Xoá</th>
             </tr>
           </thead>
           <tbody>
-            {tempData.map(({ id, title, timeStamp }, index) => (
+            {tempData.map(({ id, title, timeStamp }) => (
               <TableRow
-                index={index + 1}
                 key={nanoid()}
                 number={id}
                 time={timeStamp}
@@ -106,8 +94,6 @@ export default function App() {
           </tbody>
         </table>
       )}
-
-      {dataEmpty && <div className="App-loading">Dữ liệu trống. Vui lòng Thêm mới...</div>}
     </div>
   );
 }

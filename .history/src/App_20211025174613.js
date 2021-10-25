@@ -71,14 +71,14 @@ export default function App() {
         className="App-add-btn"
         onClick={() => {
           setRow((row) => row + 1);
-          setIsLoading(false);
+          setIsLoading(true);
           setIsAddding(true);
         }}
       >
         Thêm mới
       </Button>
 
-      {(isLoading) ? (
+      {isLoading ? (
         <div className="App-loading">Loading ...</div>
       ) : (
         <table cellSpacing="0" cellPadding="0">

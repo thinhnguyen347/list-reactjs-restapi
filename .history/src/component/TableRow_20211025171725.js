@@ -1,7 +1,7 @@
 import React from "react";
 import { nanoid } from "nanoid";
 import { TiDelete } from "react-icons/ti";
-export default function TableRow({number, time, reason, deleteRow, index}) {
+export default function TableRow({number, time, reason, deleteRow , index}) {
   let x = reason[0].toUpperCase();
   reason = reason.substr(1, reason.length)
   reason = x + reason;

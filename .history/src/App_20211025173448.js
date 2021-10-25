@@ -9,7 +9,6 @@ export default function App() {
   const [list, setList] = useState(JSON.parse(localStorage.getItem("data")));
   const [isLoading, setIsLoading] = useState(true);
   const [isAddding, setIsAddding] = useState(false);
-  const [dataEmpty, setDataEmpty] = useState(false);
 
   let url = "https://jsonplaceholder.typicode.com/todos";
   let tempData;
@@ -46,7 +45,6 @@ export default function App() {
           setList((list) => [...list, result]);
           setIsLoading(false);
           setIsAddding(false);
-          setDataEmpty(false);
         });
     }
   }, [url, row, isAddding]);
@@ -54,10 +52,7 @@ export default function App() {
   function deleteRow(id) {
     let index = tempData.findIndex((e) => e.id === id);
     tempData.splice(index, 1);
-    if (!tempData.length) {
-      setRow(0);
-      setDataEmpty(true);
-    }
+    if (!tempData.length) setRow(0);
     setList(tempData);
   }
 
@@ -71,16 +66,13 @@ export default function App() {
         className="App-add-btn"
         onClick={() => {
           setRow((row) => row + 1);
-          setIsLoading(false);
+          setIsLoading(true);
           setIsAddding(true);
         }}
       >
         Thêm mới
       </Button>
-
-      {(isLoading) ? (
-        <div className="App-loading">Loading ...</div>
-      ) : (
+      
         <table cellSpacing="0" cellPadding="0">
           <thead>
             <tr>
@@ -92,22 +84,23 @@ export default function App() {
               <th>Xoá</th>
             </tr>
           </thead>
-          <tbody>
-            {tempData.map(({ id, title, timeStamp }, index) => (
+          
+          {isLoading && !tempData.length ? (
+        <div className="App-loading">Loading ...</div>
+      ) : (<tbody> {tempData.map(({ id, title, timeStamp }, index) => (
               <TableRow
-                index={index + 1}
+                index={index+1}
                 key={nanoid()}
                 number={id}
                 time={timeStamp}
                 reason={title}
                 deleteRow={deleteRow}
               />
-            ))}
-          </tbody>
+            ))})
+            </tbody>}
+          
         </table>
-      )}
-
-      {dataEmpty && <div className="App-loading">Dữ liệu trống. Vui lòng Thêm mới...</div>}
+      )
     </div>
   );
 }

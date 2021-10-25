@@ -17,7 +17,7 @@ tr.App-row:hover {
 
 th,
 td {
-  padding: 16px;
+  padding: 16px 10px;
 }
 
 td.delete {
@@ -53,7 +53,7 @@ th {
   align-items: center;
   justify-content: center;
   height: 100px;
-  width: 100%; 
+  width: 100%;
 }
 
 .App-user,
